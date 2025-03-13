@@ -17,7 +17,7 @@ Este repositório contém um projeto de testes automatizados utilizando **Cypres
 Antes de começar, certifique-se de ter instalado:
 
 - [Node.js 14+](https://nodejs.org/)
-- [npm](https://www.npmjs.com/) ou [yarn](https://yarnpkg.com/)
+- [npm](https://www.npmjs.com/)
 
 ---
 
@@ -25,7 +25,7 @@ Antes de começar, certifique-se de ter instalado:
 
 1. Clone este repositório:
 ```bash
-git clone https://github.com/seu-usuario/projeto-cypress.git
+git clone https://github.com/Fraanps/ConduitRealWorld-tests.git
 cd projeto-cypress
 ```
 
@@ -41,13 +41,13 @@ npm install  # ou yarn install
 ### 1. Rodar Cypress em Modo Interativo
 ```bash
  npx cypress run --config-file cypress_prod.config.js
- # ou yarn cypress open
+
 ```
 
 ### 2. Rodar Cypress em Modo Headless
 ```bash
  npx cypress run --config-file cypress_prod.config.js
-# ou yarn cypress run
+
 ```
 
 ---
@@ -75,154 +75,20 @@ npm install  # ou yarn install
 
 ---
 
-[//]: # (## 🛠️ Utilizando Page Object Model &#40;POM&#41;)
+## 🛠️ Utilizando Page Object Model (POM)
 
-[//]: # ()
-[//]: # (Os testes utilizam o **Page Object Model &#40;POM&#41;** para modularização e reutilização de código. Exemplo de um arquivo de página:)
+Os testes utilizam o **Page Object Model (POM)** para modularização e reutilização de código. Exemplo de um arquivo de página:
 
-[//]: # ()
-[//]: # (```javascript)
+## 🌐 Interceptação de API
 
-[//]: # (class LoginPage {)
+O `cy.intercept()` nestes teste E2E está sendo utilizado para interceptar e monitorar as requisições da API
+que ocorrem durante o fluxo de login. Vou explicar detalhadamente o propósito de cada interceptação e por que elas são úteis.
 
-[//]: # (  visit&#40;&#41; {)
-
-[//]: # (    cy.visit&#40;'/login'&#41;;)
-
-[//]: # (  })
-
-[//]: # ()
-[//]: # (  fillUsername&#40;username&#41; {)
-
-[//]: # (    cy.get&#40;'#username'&#41;.type&#40;username&#41;;)
-
-[//]: # (  })
-
-[//]: # ()
-[//]: # (  fillPassword&#40;password&#41; {)
-
-[//]: # (    cy.get&#40;'#password'&#41;.type&#40;password&#41;;)
-
-[//]: # (  })
-
-[//]: # ()
-[//]: # (  submit&#40;&#41; {)
-
-[//]: # (    cy.get&#40;'button[type="submit"]'&#41;.click&#40;&#41;;)
-
-[//]: # (  })
-
-[//]: # (})
-
-[//]: # ()
-[//]: # (export default new LoginPage&#40;&#41;;)
-
-[//]: # (```)
-
-[//]: # ()
-[//]: # (Uso no teste:)
-
-[//]: # (```javascript)
-
-[//]: # (import LoginPage from '../pages/LoginPage';)
-
-[//]: # ()
-[//]: # (describe&#40;'Teste de Login', &#40;&#41; => {)
-
-[//]: # (  it&#40;'Deve realizar login com sucesso', &#40;&#41; => {)
-
-[//]: # (    LoginPage.visit&#40;&#41;;)
-
-[//]: # (    LoginPage.fillUsername&#40;'usuario_teste'&#41;;)
-
-[//]: # (    LoginPage.fillPassword&#40;'senha_teste'&#41;;)
-
-[//]: # (    LoginPage.submit&#40;&#41;;)
-
-[//]: # (    cy.url&#40;&#41;.should&#40;'include', '/dashboard'&#41;;)
-
-[//]: # (  }&#41;;)
-
-[//]: # (}&#41;;)
-
-[//]: # (```)
-
-[//]: # ()
-[//]: # (---)
-
-[//]: # ()
-[//]: # (## 🌐 Interceptação de API)
-
-[//]: # ()
-[//]: # (Os testes utilizam `cy.intercept&#40;&#41;` para mockar e validar chamadas de API.)
-
-[//]: # ()
-[//]: # (Exemplo:)
-
-[//]: # (```javascript)
-
-[//]: # (describe&#40;'Teste de Interceptação', &#40;&#41; => {)
-
-[//]: # (  it&#40;'Deve interceptar a resposta da API', &#40;&#41; => {)
-
-[//]: # (    cy.intercept&#40;'GET', '/api/eventos', { fixture: 'eventos.json' }&#41;.as&#40;'getEventos'&#41;;)
-
-[//]: # (    cy.visit&#40;'/eventos'&#41;;)
-
-[//]: # (    cy.wait&#40;'@getEventos'&#41;;)
-
-[//]: # (    cy.get&#40;'.evento-item'&#41;.should&#40;'have.length', 3&#41;; // Assumindo que eventos.json tem 3 itens)
-
-[//]: # (  }&#41;;)
-
-[//]: # (}&#41;;)
-
-[//]: # (```)
-
-[//]: # ()
-[//]: # (---)
-
-[//]: # ()
-[//]: # (## 🔄 Execução Automática com CI/CD)
-
-[//]: # ()
-[//]: # (Para integração contínua, adicione o seguinte script ao `package.json`:)
-
-[//]: # (```json)
-
-[//]: # ("scripts": {)
-
-[//]: # (  "test": "cypress run")
-
-[//]: # (})
-
-[//]: # (```)
-
-[//]: # ()
-[//]: # (E configure seu pipeline para rodar `npm test` ou `yarn test`.)
-
-[//]: # ()
-[//]: # (---)
-
-[//]: # ()
-[//]: # (## ✨ Contribuição)
-
-[//]: # ()
-[//]: # (Contribuições são bem-vindas! Para colaborar:)
-
-[//]: # ()
-[//]: # (1. Faça um fork do projeto.)
-
-[//]: # (2. Crie uma branch: `git checkout -b minha-feature`.)
-
-[//]: # (3. Commit suas alterações: `git commit -m 'Minha nova funcionalidade'`.)
-
-[//]: # (4. Envie para o repositório remoto: `git push origin minha-feature`.)
-
-[//]: # (5. Abra um Pull Request.)
-
-[//]: # ()
-[//]: # (---)
+📌 O que o `cy.intercept()` faz?
+O cy.intercept permite:
+✅ Interceptar requisições feitas pela aplicação durante o teste.
+✅ Aguardar as respostas dessas requisições antes de continuar.
+✅ Validar se as requisições retornam os dados esperados.
 
 ## 📝 Licença
 
