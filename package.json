@@ -1,0 +1,20 @@
+{
+  "name": "testautomation-realworld",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "open:e2e:prod": "npx cypress open --config-file cypress_prod.config.js",
+    "run:e2e:local": "npx cypress open --config-file cypress_dev.config.js",
+    "run:e2e:prod": "npx cypress run --config-file cypress_prod.config.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "cypress": "^14.1.0"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^9.6.0"
+  }
+}
