@@ -27,7 +27,24 @@ class register {
     });
     cy.writeFile ('cypress/fixtures/usersCredentials.json', arrayCredentials);
     cy.writeFile ('cypress/fixtures/usersRegistered.json', arrayResponses);
+  }
 
+  fillRegisterForm(name, email, password) {
+    cy.get(element.nameInput)
+      .type(name)
+      .should('have.attr', 'required');
+    cy.get(element.emailInput)
+      .type(email)
+      .should('have.attr', 'required');
+    cy.get(element.passwordInput)
+      .type(password)
+      .should('have.attr', 'required');
+
+
+  }
+
+  submitRegisterForm(){
+    return cy.get(element.btnSubmit).click();
   }
 }
 

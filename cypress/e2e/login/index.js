@@ -6,8 +6,7 @@ class login{
   // validação de login
   validateLoginPage(){
     cy.url('/login').then(()=> {
-      cy.contains('Login')
-        .click();
+      cy.contains('Login');
     });
   }
 
@@ -49,7 +48,11 @@ class login{
     return cy.get(elementHeader.profileIcon).click().then(() => {
       cy.get(elementHeader.profileMenu)
         .contains('Logout').click();
-    })
+    });
+  }
+
+  acessarPaginaRegistro(){
+    return cy.contains(element.registerLinkText).click();
   }
 
 }

@@ -4,7 +4,7 @@ module.exports = defineConfig ({
   env: {
     emailDefault: 'email@email.com',
     passwordDefault: '123456',
-    nomeDefault: 'nameTest',
+    nameDefault: 'nameTest',
   },
   e2e: {
     baseUrl: 'https://conduit-realworld-example-app.fly.dev/',

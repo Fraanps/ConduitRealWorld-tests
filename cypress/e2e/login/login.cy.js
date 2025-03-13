@@ -6,8 +6,8 @@ import register from '../signUp/index';
 const element = require ('./elements').ELEMENTS;
 
 describe ('Login Feature usando Pagen Objects', () => {
-  before(() => {
-    register.generateFixtureUsers(5)
+  before (() => {
+    register.generateFixtureUsers (5)
   });
 
   beforeEach (() => {
@@ -50,21 +50,21 @@ describe ('Login Feature usando Pagen Objects', () => {
 
   });
 
-  it.only("Fazer login usando credenciais válidas para múltiplos usuário no mesmo teste", () => {
+  it ("Fazer login usando credenciais válidas para múltiplos usuário no mesmo teste", () => {
 
     cy.intercept ('POST', 'api/users/login').as ('postLogin');
     cy.intercept ('GET', 'api/user').as ('getUser');
 
-    cy.fixture('usersCredentials.json').then((userFixture) =>{
-      userFixture.forEach(user => {
-        home.accessHomePage ();
+    cy.fixture ('usersCredentials.json').then ((userFixture) => {
+      userFixture.forEach (user => {
+        home.accessLoginPage();
         login.validateLoginPage ();
 
-        login.loginWithValidCredencials(user.user.email, user.user.password);
+        login.loginWithValidCredencials (user.user.email, user.user.password);
 
-        cy.wait('@postLogin').its ('response.statusCode').should ('eq', 200);
+        cy.wait ('@postLogin').its ('response.statusCode').should ('eq', 200);
 
-        cy.wait('@getUser').then (({response}) => {
+        cy.wait ('@getUser').then (({response}) => {
           expect (response.statusCode).to.equal (200);
           expect (response.body).to.not.eq ('undefined');
           expect (response.body.user).to.have.property ('username');
@@ -74,7 +74,7 @@ describe ('Login Feature usando Pagen Objects', () => {
           expect (response.body.user).to.have.property ('bio').and.to.be.a ('null');
         });
 
-        login.toLogout();
+        login.toLogout ();
       });
     });
   });
