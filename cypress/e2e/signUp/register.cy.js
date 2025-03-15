@@ -12,7 +12,7 @@ describe ('Register Feature', () => {
     home.accessHomePage ();
     home.accessLoginPage ()
     login.validateLoginPage ();
-  })
+  });
 
   it ('Sistema não deve permitir criação de contas para usuários já cadastrados', () => {
 
@@ -46,12 +46,10 @@ describe ('Register Feature', () => {
       register.submitRegisterForm ().then (() => {
         cy.wait ('@postUser').then (({response}) => {
           expect (response.statusCode).to.equal (201);
-        })
-      })
-
-
-    })
-  })
+        });
+      });
+    });
+  });
 
 });
 

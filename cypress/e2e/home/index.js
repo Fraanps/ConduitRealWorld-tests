@@ -11,16 +11,18 @@ class home {
   }
 
   accessHomePage() {
-    cy.visit('/');
+    cy.visit ('/');
   }
 
   accessNewArticlePage() {
-    cy.contains('new Article')
-      .should('have.attr', 'href', '#/editor')
-      .click();
+    cy.contains ('New Article')
+      .should ('have.attr', 'href', '#/editor')
+      .click ();
   }
+
+
 
 }
 
-export default new home();
+export default new home ();
 
