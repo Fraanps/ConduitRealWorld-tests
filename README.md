@@ -1,14 +1,16 @@
 # Testes Automatizados com Cypress
 
-Este repositório contém um projeto de testes automatizados utilizando **Cypress**, seguindo o padrão **Page Object Model (POM)** e realizando **interceptação de API** para validações e simulações de respostas.
+Este repositório contém um projeto de testes automatizados utilizando 
+**Cypress**, seguindo o padrão **Page Object Model (POM)** e realizando 
+**interceptação de API** para validações e simulações de respostas.
 
 ---
-
-## 🚀 Tecnologias Utilizadas
-
-- **[Cypress](https://www.cypress.io/)**: Framework de testes end-to-end moderno e confiável.
-- **Padrão Page Object Model (POM)**: Organização modular dos testes para facilitar a manutenção.
-- **Interceptação de API (cy.intercept)**: Simulação e validação de respostas HTTP durante os testes.
+### 🚀 Bibliotecas e plugins
+- Node
+- [Cypress](https://www.cypress.io/)
+- [Faker](https://www.npmjs.com/package/@faker-js/faker)
+- [cypress-plugin-api](https://github.com/filiphric/cypress-plugin-api)
+- [cypress-mochawesome-reporter](https://github.com/LironEr/cypress-mochawesome-reporter)
 
 ---
 
@@ -40,39 +42,13 @@ npm install  # ou yarn install
 
 ### 1. Rodar Cypress em Modo Interativo
 ```bash
- npx cypress run --config-file cypress_prod.config.js
-
+ npm run open:e2e:prod
 ```
 
 ### 2. Rodar Cypress em Modo Headless
 ```bash
- npx cypress run --config-file cypress_prod.config.js
-
+npm run run:e2e:prod
 ```
-
----
-
-## 📂 Estrutura do Projeto
-
-```plaintext
-.
-├── cypress/
-│   ├── e2e/
-│   │   ├── pages/                 # Page Objects (POM)
-│   │   ├── tests/                 # Testes organizados por funcionalidade
-│   │   └── support/               # Funções de suporte e comandos customizados
-│   ├── fixtures/                  # Dados simulados (mocks)
-│   ├── plugins/                   # Configurações adicionais
-│   ├── support/       
-│   │   ├── commands.js            # Comandos customizados
-│   │   ├── e2e.js                 # Configurações globais
-│
-├── cypress_dev.config.js          # Configuração principal do Cypress para ambiente de dev/testes
-├── cypress_prod.config.js         # Configuração principal do Cypress para ambiente de produção
-├── package.json                   # Dependências e scripts do projeto
-└── README.md                      # Documentação do projeto
-```
-
 ---
 
 ## 🛠️ Utilizando Page Object Model (POM)
@@ -89,7 +65,3 @@ O cy.intercept permite:
 ✅ Interceptar requisições feitas pela aplicação durante o teste.
 ✅ Aguardar as respostas dessas requisições antes de continuar.
 ✅ Validar se as requisições retornam os dados esperados.
-
-## 📝 Licença
-
-Este projeto está sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE) para mais detalhes.

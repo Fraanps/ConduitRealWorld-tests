@@ -5,7 +5,7 @@ import register from '../signUp/index';
 
 const element = require ('./elements').ELEMENTS;
 
-describe ('Login Feature usando Pagen Objects', () => {
+describe ('Login Feature usando Page Objects', () => {
   before (() => {
     register.generateFixtureUsers (5)
   });
