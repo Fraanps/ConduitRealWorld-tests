@@ -17,6 +17,7 @@ class Editor {
       .should('have.attr', 'type', 'submit')
       .click();
   }
+
 }
 
 export default new Editor();
