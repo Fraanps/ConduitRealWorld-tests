@@ -1,6 +1,6 @@
 # Testes Automatizados com Cypress
 
-Este repositório contém um projeto de testes automatizados utilizando 
+Este repositório contém um projeto de testes E2E automatizados utilizando 
 **Cypress**, seguindo o padrão **Page Object Model (POM)** e realizando 
 **interceptação de API** para validações e simulações de respostas.
 
